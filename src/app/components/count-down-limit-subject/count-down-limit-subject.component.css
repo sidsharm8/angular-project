@@ -1,0 +1,17 @@
+.count-down-limit {
+    display: flex;
+    height: 200px;
+    border: 2px black solid;
+  }
+  .count-down-limit__form {
+    display: flex;
+    padding: 10px;
+  }
+  .count-down-limit__buttons {
+    margin-top: 10px;
+  }
+  
+  .count-down-limit__inputs {
+    margin-left: 10px;
+  }
+  

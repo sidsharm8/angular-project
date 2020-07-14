@@ -1,0 +1,100 @@
+{
+  "students": [
+    {
+      "name": "Student 1",
+      "class": 3,
+      "section": "D",
+      "sub1": 23,
+      "sub2": 54,
+      "sub3": 65
+    },
+    {
+      "name": "Student 2",
+      "class": 3,
+      "section": "E",
+      "sub1": 23,
+      "sub2": 45,
+      "sub3": 67
+    },
+    {
+      "name": "Student 3",
+      "class": 3,
+      "section": "F",
+      "sub1": 26,
+      "sub2": 34,
+      "sub3": 45
+    },
+    {
+      "name": "Student 4",
+      "class": 3,
+      "section": "A",
+      "sub1": 34,
+      "sub2": 34,
+      "sub3": 71
+    },
+    {
+      "name": "Student 5",
+      "class": 3,
+      "section": "D",
+      "sub1": 56,
+      "sub2": 12,
+      "sub3": 87
+    },
+    {
+      "name": "Student 6",
+      "class": 3,
+      "section": "E",
+      "sub1": 13,
+      "sub2": 56,
+      "sub3": 34
+    },
+    {
+      "name": "Student 7",
+      "class": 3,
+      "section": "F",
+      "sub1": 55,
+      "sub2": 33,
+      "sub3": 33
+    },
+    {
+      "name": "Student 8",
+      "class": 3,
+      "section": "D",
+      "sub1": 36,
+      "sub2": 98,
+      "sub3": 23
+    },
+    {
+      "name": "Student 9",
+      "class": 3,
+      "section": "A",
+      "sub1": 56,
+      "sub2": 34,
+      "sub3": 56
+    },
+    {
+      "name": "Student 10",
+      "class": 3,
+      "section": "E",
+      "sub1": 66,
+      "sub2": 44,
+      "sub3": 34
+    },
+    {
+      "name": "Student 11",
+      "class": 3,
+      "section": "D",
+      "sub1": 34,
+      "sub2": 23,
+      "sub3": 14
+    },
+    {
+      "name": "Student 12",
+      "class": 3,
+      "section": "F",
+      "sub1": 38,
+      "sub2": 45,
+      "sub3": 78
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+.count-down-timer-container {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px black solid;
+}

@@ -1,0 +1,13 @@
+.dynamic-div-container {
+  display: flex;
+  flex-direction: column;
+}
+.dynamic-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  background-color: #8181bd;
+  margin-bottom: 10px;
+}

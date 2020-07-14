@@ -1,0 +1,38 @@
+.list-container {
+  margin: 0 50px;
+}
+.list-header {
+  height: 100px;
+}
+.item-container {
+  display: grid;
+  column-gap: 30px;
+  row-gap: 30px;
+}
+.item {
+  background-color: #8181bd;
+  height: 200px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.grid-icon,
+.list-icon {
+  width: 32px;
+  height: 32px;
+  opacity: 0.5;
+  cursor: pointer;
+}
+.list-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.active {
+  opacity: 1;
+}
+.select-view {
+  margin-right: 10px;
+  margin-top: 6px;
+}

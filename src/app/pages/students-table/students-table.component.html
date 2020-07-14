@@ -1,0 +1,23 @@
+<div class="students-table-container">
+  <h2>Sort Order : {{ sortOrder | json }}</h2>
+  <div class="students-table">
+    <table>
+      <tr (click)="toggleOrder($event)">
+        <th data-type="name">Name</th>
+        <th data-type="class">Class</th>
+        <th data-type="section">Section</th>
+        <th data-type="sub1">Sub1</th>
+        <th data-type="sub2">Sub2</th>
+        <th data-type="sub3">Sub3</th>
+      </tr>
+      <tr *ngFor="let student of studentsList | sortStudents : sortOrder">
+        <td>{{ student.name }}</td>
+        <td>{{ student.class }}</td>
+        <td>{{ student.section }}</td>
+        <td>{{ student.sub1 }}</td>
+        <td>{{ student.sub2 }}</td>
+        <td>{{ student.sub3 }}</td>
+      </tr>
+    </table>
+  </div>
+</div>

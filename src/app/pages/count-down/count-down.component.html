@@ -1,0 +1,8 @@
+<div class="count-down-container">
+  <app-count-down-timer [timerLimit]="timerLimit"></app-count-down-timer>
+  <app-count-down-limit
+    (startTimer)="startTimer($event)"
+  ></app-count-down-limit>
+  <app-count-down-log [logs]="logs"></app-count-down-log>
+  <app-count-down-count [counter]="counter"></app-count-down-count>
+</div>

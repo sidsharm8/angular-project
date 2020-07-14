@@ -1,0 +1,46 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="list-container">
+  <header>
+    <div class="list-header">
+      <div class="select-view">
+        <img
+          class="grid-icon"
+          [ngClass]="{
+            active: cols === 4
+          }"
+          src="../../../assets/view_module-black-18dp.svg"
+          (click)="updateColumnStyling(4)"
+        />
+        <img
+          class="list-icon"
+          [ngClass]="{
+            active: cols === 2
+          }"
+          src="../../../assets/list-black-18dp.svg"
+          (click)="updateColumnStyling(2)"
+        />
+      </div>
+      <div class="select-order">
+        <select aria-label="Select sort order" [(ngModel)]="sortOrder">
+          <option value="asc">Ascending</option>
+          <option value="desc">Descending</option>
+        </select>
+      </div>
+    </div>
+  </header>
+  <div
+    class="item-container"
+    [ngStyle]="{
+      'grid-template-columns': getColumnsStyling()
+    }"
+  >
+    <div
+      class="item"
+      *ngFor="let item of list | sortList: sortOrder; let i = index"
+    >
+      <span>
+        {{ item.id }}
+      </span>
+    </div>
+  </div>
+</div>
