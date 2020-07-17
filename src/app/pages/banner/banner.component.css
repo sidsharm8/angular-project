@@ -1,20 +1,48 @@
-.rotate {
+.rotate-1 {
   animation: rotation 8s infinite;
   font-size: 40px;
   width: auto;
   height: auto;
+  position: absolute;
+}
+.rotate-2 {
+  animation: rotation-2 8s infinite;
+  font-size: 40px;
+  width: auto;
+  height: auto;
+  position: absolute;
 }
 .rotate-container {
   display: flex;
-  justify-content: center;
   align-items: center;
   height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.rotate-page {
+  display: flex;
+  width: 600px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid black;
+  height: 55px;
 }
 @keyframes rotation {
   from {
-    transform: rotate(0deg);
+    transform: translate(0, 0);    
   }
   to {
-    transform: rotate(359deg);
+    transform: translate(600px, 0);    
+  }
+}
+@keyframes rotation-2 {
+  from {
+    transform: translate(-600px, 0);    
+  }
+  to {
+    transform: translate(0px, 0);    
   }
 }

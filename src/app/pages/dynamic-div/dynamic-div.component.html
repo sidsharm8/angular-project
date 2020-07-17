@@ -1,9 +1,10 @@
 <div class="dynamic-div-container">
   <div
     class="dynamic-div"
+    #dynamicButton
     (click)="clickHandler(i)"
     *ngFor="let item of list; let i = index"
   >
-    <button class="dynamic-button">Click me</button>
+    <button data-index="{{ i }}" class="dynamic-button">Click me</button>
   </div>
 </div>

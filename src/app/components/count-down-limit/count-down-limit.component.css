@@ -1,7 +1,9 @@
 .count-down-limit {
   display: flex;
-  height: 200px;
+  flex-direction: column;
+  min-height: 200px;
   border: 2px black solid;
+  height: auto;
 }
 .count-down-limit__form {
   display: flex;

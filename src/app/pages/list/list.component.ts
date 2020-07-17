@@ -7,8 +7,9 @@ import { Component } from '@angular/core';
 })
 export class ListComponent {
   list: any[] = [];
-  cols: number = 4;
   sortOrder: string = 'asc';
+  cols: number = 4;
+  columnStyling: string = 'repeat(4, 1fr)';
 
   constructor() {
     this.list = new Array(50);
@@ -19,11 +20,8 @@ export class ListComponent {
     }
   }
 
-  getColumnsStyling() {
-    return `repeat(${this.cols}, 1fr)`;
-  }
-
   updateColumnStyling(cols: number) {
     this.cols = cols;
+    this.columnStyling = `repeat(${cols}, 1fr)`;
   }
 }

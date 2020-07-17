@@ -1,30 +1,50 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { throttle } from 'lodash';
-
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  ViewChild,
+  ElementRef,
+  AfterViewInit,
+} from '@angular/core';
+import { fromEvent, Subscription } from 'rxjs';
+import { map, throttleTime, switchMap } from 'rxjs/operators';
 @Component({
   selector: 'app-dynamic-div',
   templateUrl: './dynamic-div.component.html',
   styleUrls: ['./dynamic-div.component.css'],
 })
-export class DynamicDivComponent implements OnInit, OnDestroy {
+export class DynamicDivComponent implements OnInit, OnDestroy, AfterViewInit {
   list: any[] = [];
-  throttledScrollHandler: () => void;
+  clickSubscription: Subscription;
+  scrollSubscription: Subscription;
   constructor() {}
-
+  @ViewChild('dynamicButton') dynamicButton: ElementRef;
   ngOnInit(): void {
     this.list = this.createTempList(0);
-    this.throttledScrollHandler = throttle(
-      this.onScrollHandler.bind(this),
-      500
-    );
-    window.addEventListener('scroll', this.throttledScrollHandler);
   }
+  ngAfterViewInit() {
+    this.clickSubscription = fromEvent(
+      this.dynamicButton.nativeElement,
+      'click'
+    )
+      .pipe(
+        map((e: MouseEvent) =>
+          Number((e.target as HTMLButtonElement).dataset.index)
+        )
+      )
+      .subscribe((index) => this.clickHandler(index));
 
+    this.scrollSubscription = fromEvent(window, 'scroll')
+      .pipe(throttleTime(100))
+      .subscribe(() => this.onScrollHandler());
+  }
   ngOnDestroy() {
-    window.removeEventListener('scroll', this.throttledScrollHandler);
+    this.clickSubscription.unsubscribe();
+    this.scrollSubscription.unsubscribe();
   }
 
   clickHandler(index: number) {
+    debugger;
     window.alert(`Button in ${index + 1}th div clicked`);
   }
   createTempList(startIndex: number) {

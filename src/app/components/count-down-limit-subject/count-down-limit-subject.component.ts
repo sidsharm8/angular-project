@@ -7,59 +7,59 @@ import { CountDownEnhancedService } from '../../services/count-down-enhanced.ser
 })
 export class CountDownLimitSubjectComponent implements OnInit {
   isStarted: boolean = false;
-  timerInProgress: number;
-  timerLimit: number = 0;
+  timerLogs: string[] = [];
   constructor(private countDownEnhancedService: CountDownEnhancedService) {}
 
   ngOnInit(): void {}
 
-  start(timerLimit: string) {
+  start(timerLimit: HTMLInputElement) {
+    const timerLimitValue = timerLimit.value;
     this.isStarted = true;
-    this.timerLimit = this.timerLimit || Number(timerLimit);
-    this.countDownEnhancedService.triggerTimer({
-      timerLimit: this.timerLimit,
+    const _timerLimit = Number(timerLimitValue);
+    this.countDownEnhancedService.pushData({
+      countDownTimer: {
+        timer: {
+          _timerLimit,
+          type: 'start',
+        },
+        interval: 1000,
+      },
     });
-    this.countDownEnhancedService.pushLogs({
-      type: 'start',
-      timeStamp: Date.now(),
-    });
-    clearTimeout(this.timerInProgress);
-    this.startTimer();
+    timerLimit.value = '';
   }
 
-  startTimer() {
-    //keep pushing values every 1000 ms
-    let componentRef = this;
-    this.timerInProgress = setTimeout(function timerCb() {
-      //recursive timeout
-      componentRef.timerLimit = componentRef.timerLimit - 1;
-      componentRef.countDownEnhancedService.triggerTimer({
-        timerLimit: componentRef.timerLimit,
-      });
-      componentRef.timerInProgress = setTimeout(timerCb, 1000);
-    }, 1000);
-  }
   pause() {
     this.isStarted = false;
-    clearTimeout(this.timerInProgress);
-    //emit one final time
-    this.countDownEnhancedService.triggerTimer({
-      timerLimit: this.timerLimit,
+    const type = 'pause';
+    this.countDownEnhancedService.pushData({
+      countDownTimer: {
+        timer: {
+          _timerLimit: null,
+          type,
+        },
+      },
     });
-    this.countDownEnhancedService.pushLogs({
-      type: 'pause',
-      timeStamp: Date.now(),
-    });
+    this.generateLogs(type);
   }
 
   reset(timerLimit: HTMLInputElement) {
     timerLimit.value = '';
     this.isStarted = false;
-    clearTimeout(this.timerInProgress);
-    this.timerLimit = 0;
-    this.countDownEnhancedService.triggerTimer({
-      timerLimit: this.timerLimit,
+    this.countDownEnhancedService.pushData({
+      countDownTimer: {
+        timer: {
+          _timerLimit: null,
+          type: 'reset',
+        },
+      },
     });
-    this.countDownEnhancedService.resetLogs();
+  }
+
+  generateLogs(type: string) {
+    if (type === 'pause') {
+      this.timerLogs.push(
+        `Paused at ${this.countDownEnhancedService.timerValue}`
+      );
+    }
   }
 }

@@ -1,17 +1,18 @@
 .count-down-limit {
-    display: flex;
-    height: 200px;
-    border: 2px black solid;
-  }
-  .count-down-limit__form {
-    display: flex;
-    padding: 10px;
-  }
-  .count-down-limit__buttons {
-    margin-top: 10px;
-  }
-  
-  .count-down-limit__inputs {
-    margin-left: 10px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  min-height: 200px;
+  border: 2px black solid;
+  height: auto;
+}
+.count-down-limit__form {
+  display: flex;
+  padding: 10px;
+}
+.count-down-limit__buttons {
+  margin-top: 10px;
+}
+
+.count-down-limit__inputs {
+  margin-left: 10px;
+}

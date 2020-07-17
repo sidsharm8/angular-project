@@ -1,8 +1,12 @@
 <div class="count-down-container">
-  <app-count-down-timer [timerLimit]="timerLimit"></app-count-down-timer>
+  <app-count-down-timer
+    [timer]="timer"
+    [interval]="interval"
+  ></app-count-down-timer>
   <app-count-down-limit
-    (startTimer)="startTimer($event)"
+    (timerChange)="timerChange($event)"
+    [timerLogs]="logs.timerLogs"
   ></app-count-down-limit>
-  <app-count-down-log [logs]="logs"></app-count-down-log>
-  <app-count-down-count [counter]="counter"></app-count-down-count>
+  <app-count-down-log [logs]="logs.timeStampLogs"></app-count-down-log>
+  <app-count-down-count [counter]="logs.counterLogs"></app-count-down-count>
 </div>

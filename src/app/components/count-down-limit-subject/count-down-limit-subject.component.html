@@ -1,22 +1,26 @@
 <div class="count-down-limit">
-    <div class="count-down-limit__form">
-      <label>Enter Timer Limit </label>
-      <div class="count-down-limit__inputs">
-        <input #timerLimit />
-        <div class="count-down-limit__buttons">
-          <button
-            class="start"
-            [hidden]="isStarted"
-            (click)="start(timerLimit.value)"
-          >
-            Start
-          </button>
-          <button class="pause" [hidden]="!isStarted" (click)="pause()">
-            Pause
-          </button>
-          <button class="reset" (click)="reset(timerLimit)">Reset</button>
-        </div>
+  <div class="count-down-limit__form">
+    <label>Enter Timer Limit </label>
+    <div class="count-down-limit__inputs">
+      <input #timerLimit [disabled]="isStarted" />
+      <div class="count-down-limit__buttons">
+        <button
+          class="start"
+          [hidden]="isStarted"
+          (click)="start(timerLimit)"
+        >
+          Start
+        </button>
+        <button class="pause" [hidden]="!isStarted" (click)="pause()">
+          Pause
+        </button>
+        <button class="reset" (click)="reset(timerLimit)">Reset</button>
       </div>
     </div>
   </div>
-  
+  <div class="count-down-limit__logs-container">
+    <ul class="count-down-limit__logs-list" *ngFor="let log of timerLogs">
+      <li class="count-down-limit__logs-item">{{ log }}</li>
+    </ul>
+  </div>
+</div>

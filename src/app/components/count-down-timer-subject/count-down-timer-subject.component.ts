@@ -9,15 +9,36 @@ import { Subscription } from 'rxjs';
 })
 export class CountDownTimerSubjectComponent implements OnInit, OnDestroy {
   timerLimit: number = 0;
+  interval: number = 1000;
+  timerInProgress: number;
   timerSubsciption: Subscription;
   constructor(private countDownService: CountDownEnhancedService) {}
 
   ngOnInit(): void {
-    this.timerSubsciption = this.countDownService.timer$.subscribe(
-      ({ timerLimit }) => (this.timerLimit = timerLimit)
+    this.timerLimit = this.countDownService.timerValue;
+    this.timerSubsciption = this.countDownService.$data.subscribe(
+      ({ countDownTimer: { timer, interval } }) => {
+        this.startTimer(timer, interval);
+      }
     );
   }
 
+  startTimer(timer, interval) {
+    const { _timerLimit, type } = timer;
+    clearInterval(this.timerInProgress);
+    if (type === 'start') {
+      this.timerLimit = this.timerLimit || _timerLimit;
+      this.interval = interval;
+      this.timerInProgress = setInterval(() => {
+        this.timerLimit = this.timerLimit - 1;
+        //update the service
+        this.countDownService.timerValue = this.timerLimit;
+      }, this.interval);
+    } else if (type === 'reset') {
+      this.timerLimit = 0;
+      this.countDownService.timerValue = this.timerLimit;
+    }
+  }
   ngOnDestroy() {
     this.timerSubsciption.unsubscribe();
   }

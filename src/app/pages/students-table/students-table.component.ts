@@ -31,8 +31,7 @@ export class StudentsTableComponent implements OnInit {
       error: () => {},
     });
   }
-  toggleOrder(event: MouseEvent) {
-    const { type } = (event.target as HTMLTableHeaderCellElement).dataset;
+  toggleOrder(type: string) {
     if (this.sortOrder.type === type) {
       //toggle order when type is same
       const {
