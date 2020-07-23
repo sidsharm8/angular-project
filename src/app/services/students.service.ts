@@ -23,10 +23,9 @@ export class StudentsService {
   constructor(private http: HttpClient) {}
 
   getStudentsData() {
-    return this.http.get<Students>(STUDENTS_URL).pipe(
-      retry(3), // retry a failed request up to 3 times,
-      catchError(this.handleError)
-    );
+    return this.http
+      .get<Students>(STUDENTS_URL)
+      .pipe(catchError(this.handleError));
   }
 
   private handleError(error: HttpErrorResponse) {

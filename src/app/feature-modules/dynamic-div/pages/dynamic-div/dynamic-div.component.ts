@@ -7,7 +7,7 @@ import {
   AfterViewInit,
 } from '@angular/core';
 import { fromEvent, Subscription } from 'rxjs';
-import { map, throttleTime, switchMap } from 'rxjs/operators';
+import { map, throttleTime } from 'rxjs/operators';
 @Component({
   selector: 'app-dynamic-div',
   templateUrl: './dynamic-div.component.html',

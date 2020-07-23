@@ -10,33 +10,43 @@ const routes: Routes = [
   },
   {
     path: 'banner',
-    loadChildren: () => import('./banner.module').then((m) => m.BannerModule),
+    loadChildren: () =>
+      import('./feature-modules/banner/banner.module').then(
+        (m) => m.BannerModule
+      ),
   },
   {
     path: 'product-list',
-    loadChildren: () => import('./list.module').then((m) => m.ListModule),
+    loadChildren: () =>
+      import('./feature-modules/list/list.module').then((m) => m.ListModule),
   },
   {
     path: 'dynamic-div',
     loadChildren: () =>
-      import('./dynamic-div.module').then((m) => m.DynamicDivModule),
+      import('./feature-modules/dynamic-div/dynamic-div.module').then(
+        (m) => m.DynamicDivModule
+      ),
   },
   {
     path: 'students-table',
     loadChildren: () =>
-      import('./students.module').then((m) => m.StudentsModule),
+      import('./feature-modules/students/students.module').then(
+        (m) => m.StudentsModule
+      ),
   },
   {
     path: 'count-down',
     loadChildren: () =>
-      import('./count-down.module').then((m) => m.CountDownModule),
+      import('./feature-modules/count-down/count-down.module').then(
+        (m) => m.CountDownModule
+      ),
   },
   {
     path: 'count-down-2',
     loadChildren: () =>
-      import('./count-down-enhanced.module').then(
-        (m) => m.CountDownEnhancedModule
-      ),
+      import(
+        './feature-modules/count-down-enhanced/count-down-enhanced.module'
+      ).then((m) => m.CountDownEnhancedModule),
   },
   {
     path: '**',

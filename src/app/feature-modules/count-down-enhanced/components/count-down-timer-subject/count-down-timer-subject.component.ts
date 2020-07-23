@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { CountDownEnhancedService } from '../../services/count-down-enhanced.service';
+import { CountDownEnhancedService } from '../../../../services/count-down-enhanced.service';
 import { Subscription } from 'rxjs';
 
 @Component({

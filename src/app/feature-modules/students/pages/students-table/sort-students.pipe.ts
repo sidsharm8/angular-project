@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Student } from '../../services/students.service';
+import { Student } from '../../../../services/students.service';
 import { SortOrder } from './students-table.component';
 const SORT_MAP = {
   asc: 1,

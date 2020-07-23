@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CountDownEnhancedService } from '../../services/count-down-enhanced.service';
+import { CountDownEnhancedService } from '../../../../services/count-down-enhanced.service';
 @Component({
   selector: 'app-count-down-limit-subject',
   templateUrl: './count-down-limit-subject.component.html',
@@ -53,6 +53,7 @@ export class CountDownLimitSubjectComponent implements OnInit {
         },
       },
     });
+    this.resetLogs();
   }
 
   generateLogs(type: string) {
@@ -61,5 +62,9 @@ export class CountDownLimitSubjectComponent implements OnInit {
         `Paused at ${this.countDownEnhancedService.timerValue}`
       );
     }
+  }
+
+  resetLogs() {
+    this.timerLogs = [];
   }
 }

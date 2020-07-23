@@ -3,7 +3,7 @@ import {
   StudentsService,
   Students,
   Student,
-} from '../../services/students.service';
+} from '../../../../services/students.service';
 export type SortOrder = {
   orderList: string[];
   orderIndex: number;

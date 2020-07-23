@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { CountDownEnhancedService } from '../../services/count-down-enhanced.service';
+import { CountDownEnhancedService } from '../../../../services/count-down-enhanced.service';
 import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-count-down-count-subject',
@@ -34,7 +34,7 @@ export class CountDownCountSubjectComponent implements OnInit, OnDestroy {
       default:
     }
   }
-  
+
   ngOnDestroy() {
     this.counterSubscription.unsubscribe();
   }
