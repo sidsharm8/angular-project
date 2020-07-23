@@ -2,53 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.1.
 
-## Angular app using lazy loaded modules
 
-```
-const routes: Routes = [
-  {
-    path: 'banner',
-    loadChildren: () => import('./banner.module').then((m) => m.BannerModule),
-    pathMatch: 'full',
-  },
-  {
-    path: 'product-list',
-    loadChildren: () => import('./list.module').then((m) => m.ListModule),
-    component: ListComponent,
-  },
-  {
-    path: 'dynamic-div',
-    loadChildren: () =>
-      import('./dynamic-div.module').then((m) => m.DynamicDivModule),
-    component: DynamicDivComponent,
-  },
-  {
-    path: 'students-table',
-    loadChildren: () =>
-      import('./students.module').then((m) => m.StudentsModule),
-    component: StudentsTableComponent,
-  },
-  {
-    path: 'count-down',
-    loadChildren: () =>
-      import('./count-down.module').then((m) => m.CountDownModule),
-    component: CountDownComponent,
-  },
-  {
-    path: 'count-down-2',
-    loadChildren: () =>
-      import('./count-down-enhanced.module').then(
-        (m) => m.CountDownEnhancedModule
-      ),
-    component: CountDownEnhancedComponent,
-  },
-  {
-    path: '**',
-    redirectTo: 'banner',
-  },
-];
-
-```
 
 ## Development server
 
